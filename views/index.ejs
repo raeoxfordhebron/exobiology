@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <main>
+        <div>
+            <h1>Scientists</h1>
+            <% for(scientist of scientists){ %>
+                <h2><%= scientist.name %></h2>
+                <p><%= scientist. description %></p>
+            <% } %>
+        </div>
+    </main>
+</body>
+</html>
