@@ -2,11 +2,12 @@ require("dotenv").config()
 const express = require('express')
 const app = express()
 const PORT = process.env.PORT
-let scientists = []
-
+const methodOverride = require('method-override')
+const scientists = require('./models/planet.js')
 
 // Middleware
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride("_method"))
 
 // Index Route
 app.get("/planet", (req, res) => {
@@ -18,6 +19,18 @@ app.get("/planet", (req, res) => {
 // New Route
 app.get("/planet/new", (req, res) => {
     res.render("new.ejs")
+})
+
+// Delete Route
+app.delete("/planet/:id", (req, res) => {
+    scientists.splice(req.params.id, 1)
+    res.redirect("/planet")
+})
+
+// Delete Everything Route
+app.delete("/planet", (req, res) => {
+    scientists.splice(0, scientists.length)
+    res.redirect("/planet")
 })
 
 // Create Route

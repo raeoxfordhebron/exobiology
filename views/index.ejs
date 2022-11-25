@@ -5,10 +5,16 @@
     <main>
         <div>
             <h1>Scientists</h1>
-            <% for(scientist of scientists){ %>
-                <h2><%= scientist.name %></h2>
-                <p><%= scientist. description %></p>
+            <% for(let i = 0; i < scientists.length; i++){ %>
+                <h2><%= scientists[i].name %></h2>
+                <p><%= scientists[i]. description %></p>
+                <form action="/planet/<%= i %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
             <% } %>
+            <form action="/planet/?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Everything!">
+            </form>
         </div>
     </main>
 </body>
