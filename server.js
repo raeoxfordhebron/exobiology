@@ -40,6 +40,14 @@ app.post("/planet", (req, res) => {
     res.redirect("/planet")
 })
 
+// Show Route
+app.get("/planet/:id", (req, res) => {
+    res.render("show.ejs", {
+        scientist: scientists[req.params.id],
+        index: req.params.id
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`server is listening to port ${PORT}`)
 })

@@ -6,7 +6,7 @@
         <div>
             <h1>Scientists</h1>
             <% for(let i = 0; i < scientists.length; i++){ %>
-                <h2><%= scientists[i].name %></h2>
+                <a href="/planet/<%= i %>"><h2><%= scientists[i].name %></h2></a>
                 <p><%= scientists[i]. description %></p>
                 <form action="/planet/<%= i %>?_method=DELETE" method="POST">
                     <input type="submit" value="Delete">

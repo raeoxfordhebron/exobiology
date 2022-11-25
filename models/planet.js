@@ -5,7 +5,7 @@ const scientists = [
     },
     {
         name: 'Bob',
-        descriptions: 'Another Scientist'
+        description: 'Another Scientist'
     }
 ]
 
